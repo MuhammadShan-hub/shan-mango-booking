@@ -8,7 +8,7 @@
     body {
       font-family: Arial, sans-serif;
       margin: 0; padding: 0;
-      background: #ffffff; /* Changed to white */
+      background: #ffffff;
       color: #333;
     }
     header {
@@ -68,15 +68,24 @@
       padding: 5px 0;
       font-weight: bold;
     }
-    .fruit-image {
-      text-align: center;
+
+    /* Mango Gallery Styles */
+    .fruit-gallery {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
       margin: 20px 0;
+      flex-wrap: wrap;
     }
-    .fruit-image img {
+    .fruit-gallery img {
+      flex: 1 1 30%;
       max-width: 100%;
       border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      object-fit: cover;
+      height: 200px;
     }
+
     .payment-methods {
       background: #fff3e0;
       padding: 15px;
@@ -155,22 +164,23 @@
     </ul>
   </section>
 
-  <!-- Fruit Image Section -->
-  <div class="fruit-image">
-    <img src="https://images.unsplash.com/photo-1621680665672-d118b8782c1c?auto=format&fit=crop&w=800&q=80" alt="Natural Mangoes" />
+  <!-- Mango Gallery Section -->
+  <div class="fruit-gallery">
+    <img src="https://images.unsplash.com/photo-1624032755791-fc7bda1e1955?auto=format&fit=crop&w=400&q=80" alt="Mango 1" />
+    <img src="https://images.unsplash.com/photo-1621680665672-d118b8782c1c?auto=format&fit=crop&w=400&q=80" alt="Mango 2" />
+    <img src="https://images.unsplash.com/photo-1626186097306-f32d45a33e03?auto=format&fit=crop&w=400&q=80" alt="Mango 3" />
   </div>
 
   <section class="payment-methods">
     Payment Methods Available:<br />
     • JazzCash: 03237691828<br />
-    • Easypaisa: 03220781319<br />
-    <br />
+    • Easypaisa: 03220781319<br /><br />
     <strong>Note:</strong> Cash payment must be made before delivery.
   </section>
 
   <section class="note">
     <strong>Delivery Areas:</strong> All Pakistan<br />
-    <strong>Note:</strong> Delivery prices will be given by buyer
+    <strong>Note:</strong> Delivery prices will be given by buyer.
   </section>
 
   <form id="bookingForm">
