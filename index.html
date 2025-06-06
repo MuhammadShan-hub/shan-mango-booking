@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shan Fresh Fruit - Mango Booking</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+      background: #fff8e1;
+      color: #333;
+    }
+    header {
+      background: #ff9800;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      letter-spacing: 2px;
+    }
+    .container {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 0 15px;
+    }
+    h2 {
+      color: #e65100;
+      margin-bottom: 10px;
+    }
+    .varieties {
+      background: #fff3e0;
+      padding: 15px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+    }
+    .varieties ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .varieties li {
+      padding: 5px 0;
+      font-weight: bold;
+    }
+    form {
+      background: #fff3e0;
+      padding: 20px;
+      border-radius: 6px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin: 12px 0 6px;
+      font-weight: bold;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #e0b14a;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    textarea {
+      resize: vertical;
+    }
+    button {
+      margin-top: 20px;
+      background: #ff9800;
+      color: white;
+      border: none;
+      padding: 15px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      border-radius: 5px;
+      width: 100%;
+    }
+    button:hover {
+      background: #e65100;
+    }
+    footer {
+      text-align: center;
+      margin: 40px 0 20px;
+      font-size: 0.9rem;
+      color: #777;
+    }
+    .note {
+      background: #fff3e0;
+      border-left: 5px solid #ff9800;
+      padding: 10px 15px;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Shan Fresh Fruit</h1>
+  <p>Order Fresh Mangoes Online</p>
+</header>
+
+<div class="container">
+  
+  <section class="varieties">
+    <h2>Mango Varieties & Prices</h2>
+    <ul>
+      <li>White Chownsa — ₹2000 / 10kg (without delivery)</li>
+      <li>Duseri — ₹1500 / 10kg (without delivery)</li>
+      <li>Sindhri — ₹2000 / 10kg (without delivery)</li>
+      <li>Other varieties — Price not decided yet</li>
+    </ul>
+  </section>
+
+  <section class="note">
+    <strong>Delivery Areas:</strong> All Pakistan<br/>
+    <strong>Payment:</strong> Cash payment must be made before delivery.
+  </section>
+
+  <form id="bookingForm">
+    <h2>Place Your Order</h2>
+
+    <label for="name">Full Name *</label>
+    <input type="text" id="name" name="name" required placeholder="Your full name" />
+
+    <label for="phone">Phone or WhatsApp Number *</label>
+    <input type="tel" id="phone" name="phone" required placeholder="e.g. 03220781319" />
+
+    <label for="address">Delivery Address *</label>
+    <textarea id="address" name="address" required placeholder="Your full delivery address"></textarea>
+
+    <label for="variety">Select Variety *</label>
+    <select id="variety" name="variety" required>
+      <option value="" disabled selected>Select variety</option>
+      <option value="White Chownsa">White Chownsa</option>
+      <option value="Duseri">Duseri</option>
+      <option value="Sindhri">Sindhri</option>
+      <option value="Other">Other</option>
+    </select>
+
+    <label for="quantity">Quantity (in kg) *</label>
+    <input type="number" id="quantity" name="quantity" min="1" required placeholder="Enter quantity in kg" />
+
+    <button type="submit">Send Order via WhatsApp</button>
+  </form>
+</div>
+
+<footer>
+  &copy; 2025 Shan Fresh Fruit
+</footer>
+
+<script>
+  document.getElementById('bookingForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const name = encodeURIComponent(document.getElementById('name').value.trim());
+    const phone = encodeURIComponent(document.getElementById('phone').value.trim());
+    const address = encodeURIComponent(document.getElementById('address').value.trim());
+    const variety = encodeURIComponent(document.getElementById('variety').value);
+    const quantity = encodeURIComponent(document.getElementById('quantity').value);
+
+    const message =
+      `*New Mango Order*\n` +
+      `Name: ${name}\n` +
+      `Phone: ${phone}\n` +
+      `Address: ${address}\n` +
+      `Variety: ${variety}\n` +
+      `Quantity: ${quantity} kg\n\n` +
+      `*Delivery Area:* All Pakistan\n` +
+      `*Payment:* Cash payment must be made before delivery.`;
+
+    // Your WhatsApp number with country code, no + or dashes
+    const whatsappNumber = '923220781319'; // Pakistan country code 92 + your number without leading zero
+
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+    // Open WhatsApp chat in a new tab
+    window.open(whatsappURL, '_blank');
+  });
+</script>
+
+</body>
+</html>
