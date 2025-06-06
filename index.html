@@ -8,7 +8,7 @@
     body {
       font-family: Arial, sans-serif;
       margin: 0; padding: 0;
-      background: #fff8e1;
+      background: #ffffff; /* Changed to white */
       color: #333;
     }
     header {
@@ -67,6 +67,15 @@
     .varieties li {
       padding: 5px 0;
       font-weight: bold;
+    }
+    .fruit-image {
+      text-align: center;
+      margin: 20px 0;
+    }
+    .fruit-image img {
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
     .payment-methods {
       background: #fff3e0;
@@ -135,7 +144,7 @@
 </header>
 
 <div class="container">
-  
+
   <section class="varieties">
     <h2>Mango Varieties & Prices</h2>
     <ul>
@@ -146,6 +155,11 @@
     </ul>
   </section>
 
+  <!-- Fruit Image Section -->
+  <div class="fruit-image">
+    <img src="https://images.unsplash.com/photo-1621680665672-d118b8782c1c?auto=format&fit=crop&w=800&q=80" alt="Natural Mangoes" />
+  </div>
+
   <section class="payment-methods">
     Payment Methods Available:<br />
     • JazzCash: 03237691828<br />
@@ -155,7 +169,8 @@
   </section>
 
   <section class="note">
-    <strong>Delivery Areas:</strong> All Pakistan
+    <strong>Delivery Areas:</strong> All Pakistan<br />
+    <strong>Note:</strong> Delivery prices will be given by buyer
   </section>
 
   <form id="bookingForm">
@@ -208,16 +223,14 @@
       `Variety: ${variety}\n` +
       `Quantity: ${quantity} kg\n\n` +
       `*Delivery Area:* All Pakistan\n` +
+      `*Delivery Price:* Will be given by buyer\n` +
       `*Payment:* Cash payment must be made before delivery.\n\n` +
       `*Payment Methods Available:*\n` +
       `JazzCash: 03237691828\n` +
       `Easypaisa: 03220781319`;
 
-    // WhatsApp number (Pakistan country code 92 + number without leading zero)
     const whatsappNumber = '923220781319';
-
     const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-
     window.open(whatsappURL, '_blank');
   });
 </script>
