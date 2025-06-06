@@ -16,18 +16,34 @@
       color: white;
       text-align: center;
       padding: 20px 10px;
+      position: relative;
     }
     header h1 {
       margin: 0;
       font-size: 2rem;
       letter-spacing: 2px;
+      position: relative;
+      z-index: 2;
+    }
+    header p {
+      position: relative;
+      z-index: 2;
+      margin: 5px 0 0;
+      font-weight: bold;
     }
     header img {
-      max-width: 100%;
-      height: auto;
-      margin-top: 10px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid white;
+      transform: translate(-50%, -50%);
+      opacity: 0.85;
+      z-index: 1;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
     }
     .container {
       max-width: 600px;
@@ -51,6 +67,14 @@
     .varieties li {
       padding: 5px 0;
       font-weight: bold;
+    }
+    .payment-methods {
+      background: #fff3e0;
+      padding: 15px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      font-weight: bold;
+      color: #e65100;
     }
     form {
       background: #fff3e0;
@@ -107,10 +131,7 @@
 <header>
   <h1>Shan Fresh Fruit</h1>
   <p>Order Fresh Mangoes Online</p>
-  <img 
-    src="https://images.unsplash.com/photo-1590080877777-4a0e4a7a6f23?auto=format&fit=crop&w=800&q=80" 
-    alt="Fresh Mango" 
-  />
+  <img src="https://images.unsplash.com/photo-1590080877777-4a0e4a7a6f23?auto=format&fit=crop&w=800&q=80" alt="Fresh Mango" />
 </header>
 
 <div class="container">
@@ -125,14 +146,16 @@
     </ul>
   </section>
 
+  <section class="payment-methods">
+    Payment Methods Available:<br />
+    • JazzCash: 03237691828<br />
+    • Easypaisa: 03220781319<br />
+    <br />
+    <strong>Note:</strong> Cash payment must be made before delivery.
+  </section>
+
   <section class="note">
-    <strong>Delivery Areas:</strong> All Pakistan<br/>
-    <strong>Payment Methods:</strong>
-    <ul>
-      <li>Cash Before Delivery</li>
-      <li>JazzCash: 0323-7691828</li>
-      <li>EasyPaisa: 0322-0781319</li>
-    </ul>
+    <strong>Delivery Areas:</strong> All Pakistan
   </section>
 
   <form id="bookingForm">
@@ -185,10 +208,13 @@
       `Variety: ${variety}\n` +
       `Quantity: ${quantity} kg\n\n` +
       `*Delivery Area:* All Pakistan\n` +
-      `*Payment:* Cash payment must be made before delivery.\n` +
-      `*Payment Methods:* JazzCash: 0323-7691828, EasyPaisa: 0322-0781319`;
+      `*Payment:* Cash payment must be made before delivery.\n\n` +
+      `*Payment Methods Available:*\n` +
+      `JazzCash: 03237691828\n` +
+      `Easypaisa: 03220781319`;
 
-    const whatsappNumber = '923220781319'; // Pakistan country code 92 + your number without leading zero
+    // WhatsApp number (Pakistan country code 92 + number without leading zero)
+    const whatsappNumber = '923220781319';
 
     const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
