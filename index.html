@@ -1,240 +1,560 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shan Fresh Fruit - Mango Order</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #fff;
-      color: #333;
-    }
-    header {
-      background: #ff9800;
-      color: white;
-      text-align: center;
-      padding: 15px 10px;
-      position: relative;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 1.8rem;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-    }
-    header p {
-      margin: 5px 0 0;
-      font-weight: bold;
-    }
-    .container {
-      max-width: 500px;
-      margin: 15px auto;
-      padding: 0 15px;
-    }
-    .card {
-      background: #fff3e0;
-      padding: 15px;
-      border-radius: 8px;
-      margin-bottom: 15px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    h2 {
-      color: #e65100;
-      margin: 0 0 10px;
-      font-size: 1.3rem;
-    }
-    .fruit-gallery {
-      display: flex;
-      gap: 10px;
-      margin: 15px 0;
-      height: 120px;
-    }
-    .fruit-img {
-      flex: 1;
-      position: relative;
-      overflow: hidden;
-      border-radius: 5px;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-    }
-    .fruit-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      position: absolute;
-      animation: fruitAnim 15s infinite;
-      opacity: 0;
-      transition: opacity 1s ease;
-    }
-    @keyframes fruitAnim {
-      0% { opacity: 0; transform: scale(1); }
-      5% { opacity: 1; transform: scale(1); }
-      25% { opacity: 1; transform: scale(1.05); }
-      30% { opacity: 0; transform: scale(1.1); }
-      100% { opacity: 0; transform: scale(1); }
-    }
-    .fruit-img img:nth-child(1) { animation-delay: 0s; }
-    .fruit-img img:nth-child(2) { animation-delay: 5s; }
-    .fruit-img img:nth-child(3) { animation-delay: 10s; }
-    form {
-      background: #fff3e0;
-      padding: 15px;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    label {
-      display: block;
-      margin: 10px 0 5px;
-      font-weight: bold;
-    }
-    input, select, textarea {
-      width: 100%;
-      padding: 8px;
-      border: 1px solid #e0b14a;
-      border-radius: 4px;
-      box-sizing: border-box;
-    }
-    button {
-      background: #ff9800;
-      color: white;
-      border: none;
-      padding: 12px;
-      width: 100%;
-      margin-top: 15px;
-      font-size: 1rem;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    button:hover {
-      background: #e65100;
-    }
-    footer {
-      text-align: center;
-      margin: 20px 0;
-      color: #777;
-      font-size: 0.9rem;
-    }
-    ul {
-      padding-left: 20px;
-    }
-    li {
-      margin-bottom: 5px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shan Fruit Farm - Premium Pakistani Mangoes</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #2e8b57;
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+        
+        .logo img {
+            height: 60px;
+            margin-right: 15px;
+        }
+        
+        .logo-text {
+            text-align: center;
+        }
+        
+        .logo-text h1 {
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+        
+        .logo-text p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: #ffd700;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1603569283847-aa295f0d016a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #ffd700;
+            color: #333;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: #ffc800;
+            transform: translateY(-3px);
+        }
+        
+        .whatsapp-btn {
+            background-color: #25D366;
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-left: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+            transform: translateY(-3px);
+        }
+        
+        .whatsapp-btn img {
+            width: 20px;
+            margin-right: 10px;
+        }
+        
+        /* Products Section */
+        .section-title {
+            text-align: center;
+            margin: 60px 0 40px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: #2e8b57;
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            font-size: 18px;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .product-img {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-img img {
+            transform: scale(1.1);
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-info h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #2e8b57;
+        }
+        
+        .product-info p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        /* About Section */
+        .about {
+            background-color: #f0f7f4;
+            padding: 80px 0;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-img {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-text h2 {
+            font-size: 36px;
+            color: #2e8b57;
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 17px;
+            color: #555;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .contact-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        
+        .contact-card i {
+            font-size: 40px;
+            color: #2e8b57;
+            margin-bottom: 20px;
+        }
+        
+        .contact-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .contact-card p {
+            color: #666;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #2e8b57;
+            color: white;
+            padding: 40px 0 20px;
+            text-align: center;
+        }
+        
+        .social-links {
+            margin-bottom: 20px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            color: white;
+            font-size: 22px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: #ffd700;
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .hero {
+                height: 400px;
+            }
+            
+            .hero h2 {
+                font-size: 32px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .btn, .whatsapp-btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-img {
+                order: -1;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo {
+                flex-direction: column;
+            }
+            
+            .logo img {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 5px 0;
+            }
+            
+            .hero {
+                height: 350px;
+            }
+            
+            .hero h2 {
+                font-size: 28px;
+            }
+            
+            .btn-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .whatsapp-btn {
+                margin-left: 0;
+                margin-top: 15px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-  <header>
-    <h1>Shan Fresh Fruit</h1>
-    <p>Premium Quality Mangoes</p>
-  </header>
-
-  <div class="container">
-    <div class="card">
-      <h2>Our Mango Varieties</h2>
-      <div class="fruit-gallery">
-        <div class="fruit-img">
-          <img src="https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Fresh Mango">
-          <img src="https://images.unsplash.com/photo-1603569283847-aa295f0d016a?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Mango Slices">
-          <img src="https://images.unsplash.com/photo-1553279768-865429fa0078?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Mango Basket">
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="https://via.placeholder.com/60" alt="Shan Fruit Farm Logo">
+                <div class="logo-text">
+                    <h1>Shan Fruit Farm</h1>
+                    <p>Premium Quality Pakistani Mangoes</p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-      </div>
-      <ul>
-        <li><strong>White Chownsa</strong> — PKR 2000 / 10kg</li>
-        <li><strong>Duseri</strong> — PKR 1500 / 10kg</li>
-        <li><strong>Sindhri</strong> — PKR 2000 / 10kg</li>
-        <li><strong>Other varieties</strong> — Available on request</li>
-      </ul>
-    </div>
+    </header>
 
-    <div class="fruit-gallery">
-      <div class="fruit-img">
-        <img src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Mango Juice">
-        <img src="https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Mango Drink">
-        <img src="https://images.unsplash.com/photo-1603569283847-aa295f0d016a?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Mango Slices">
-      </div>
-      <div class="fruit-img">
-        <img src="https://images.unsplash.com/photo-1553279768-865429fa0078?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Mango Basket">
-        <img src="https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Fresh Mango">
-        <img src="https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Mango Drink">
-      </div>
-    </div>
-
-    <div class="card">
-      <h2>Payment & Delivery</h2>
-      <p><strong>Payment Methods:</strong></p>
-      <ul>
-        <li>JazzCash: 03237691828</li>
-        <li>Easypaisa: 03220781319</li>
-      </ul>
-      <p><strong>Delivery:</strong> Nationwide (charges apply)</p>
-      <p><em>Payment must be completed before delivery</em></p>
-    </div>
-
-    <form id="bookingForm">
-      <h2>Place Your Order</h2>
-      
-      <div class="fruit-gallery">
-        <div class="fruit-img">
-          <img src="https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Fresh Mango">
-          <img src="https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Mango Drink">
-          <img src="https://images.unsplash.com/photo-1553279768-865429fa0078?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Mango Basket">
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Farm Fresh Pakistani Mangoes</h2>
+                <p>Direct from our orchards to your home - the sweetest, juiciest mangoes in Pakistan</p>
+                <div class="btn-container">
+                    <a href="#products" class="btn">View Our Mangoes</a>
+                    <a href="https://wa.me/923011311468" class="whatsapp-btn" target="_blank">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+                        Order on WhatsApp
+                    </a>
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
 
-      <label for="name">Full Name *</label>
-      <input type="text" id="name" required placeholder="Your full name">
+    <!-- Products Section -->
+    <section id="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Premium Mango Varieties</h2>
+                <p>We grow the finest quality mangoes using traditional farming methods for authentic taste</p>
+            </div>
+            <div class="products">
+                <!-- Product 1 - Sindhri -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Sindhri Mango">
+                    </div>
+                    <div class="product-info">
+                        <h3>Sindhri Mango</h3>
+                        <p>The king of Pakistani mangoes - sweet, fiberless, and aromatic</p>
+                        <p class="price">Rs. 2,000 per 8kg box</p>
+                    </div>
+                </div>
+                
+                <!-- Product 2 - Chaunsa -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1553279768-865429fa0078?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Chaunsa Mango">
+                    </div>
+                    <div class="product-info">
+                        <h3>Chaunsa Mango</h3>
+                        <p>Juicy, rich flavor with perfect sweetness - a summer favorite</p>
+                        <p class="price">Rs. 2,000 per 8kg box</p>
+                    </div>
+                </div>
+                
+                <!-- Product 3 - Dusehri -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1599623560574-39d485352c99?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Dusehri Mango">
+                    </div>
+                    <div class="product-info">
+                        <h3>Dusehri Mango</h3>
+                        <p>Soft, aromatic, and delicious with a unique flavor profile</p>
+                        <p class="price">Rs. 1,800 per 8kg box</p>
+                    </div>
+                </div>
+                
+                <!-- Product 4 - Anwar Ratol -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1603569283847-aa295f0d016a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Anwar Ratol Mango">
+                    </div>
+                    <div class="product-info">
+                        <h3>Anwar Ratol</h3>
+                        <p>Small in size but extremely sweet with rich aroma</p>
+                        <p class="price">Price coming soon</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-      <label for="phone">Phone/WhatsApp *</label>
-      <input type="tel" id="phone" required placeholder="e.g. 03220781319">
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About Shan Fruit Farm</h2>
+                    <p>Shan Fruit Farm is a family-owned mango orchard with over 15 years of experience in cultivating premium quality mangoes. Located in the heart of Pakistan's mango belt, our farm benefits from ideal climate conditions and fertile soil that produce the sweetest, most flavorful mangoes.</p>
+                    <p>We take pride in using traditional farming methods combined with modern quality control to deliver mangoes that meet the highest standards. Our mangoes are hand-picked at peak ripeness to ensure perfect taste and texture.</p>
+                    <p>From our farm to your table - experience the authentic taste of Pakistani mangoes!</p>
+                </div>
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1597362925123-77861d3fbac7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Shan Fruit Farm">
+                </div>
+            </div>
+        </div>
+    </section>
 
-      <label for="address">Delivery Address *</label>
-      <textarea id="address" required rows="3" placeholder="Full address with city"></textarea>
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch to place your order or inquire about wholesale opportunities</p>
+            </div>
+            <div class="contact-info">
+                <div class="contact-card">
+                    <i class="fas fa-phone-alt"></i>
+                    <h3>Call Us</h3>
+                    <p>0301-1311468</p>
+                </div>
+                <div class="contact-card">
+                    <i class="fab fa-whatsapp"></i>
+                    <h3>WhatsApp</h3>
+                    <p><a href="https://wa.me/923011311468" style="color: #25D366; text-decoration: none;">Chat with us</a></p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p>info@shanfruitfarm.com</p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Location</h3>
+                    <p>Multan, Punjab, Pakistan</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-      <label for="variety">Mango Variety *</label>
-      <select id="variety" required>
-        <option value="" disabled selected>Select your variety</option>
-        <option value="White Chownsa">White Chownsa</option>
-        <option value="Duseri">Duseri</option>
-        <option value="Sindhri">Sindhri</option>
-        <option value="Other">Other (Specify in address)</option>
-      </select>
-
-      <label for="quantity">Quantity (kg) *</label>
-      <input type="number" id="quantity" min="1" required placeholder="Minimum 1kg">
-
-      <button type="submit">Place Order via WhatsApp</button>
-    </form>
-  </div>
-
-  <footer>
-    &copy; 2025 Shan Fresh Fruit. All rights reserved.
-  </footer>
-
-  <script>
-    document.getElementById('bookingForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      const name = encodeURIComponent(document.getElementById('name').value.trim());
-      const phone = encodeURIComponent(document.getElementById('phone').value.trim());
-      const address = encodeURIComponent(document.getElementById('address').value.trim());
-      const variety = encodeURIComponent(document.getElementById('variety').value);
-      const quantity = encodeURIComponent(document.getElementById('quantity').value);
-      
-      const message = `*NEW MANGO ORDER*\n\n` +
-                     `*Name:* ${name}\n` +
-                     `*Contact:* ${phone}\n` +
-                     `*Address:* ${address}\n` +
-                     `*Variety:* ${variety}\n` +
-                     `*Quantity:* ${quantity}kg\n\n` +
-                     `*Payment Method:*\n` +
-                     `JazzCash: 03237691828\n` +
-                     `Easypaisa: 03220781319\n\n` +
-                     `*Note:* Payment required before delivery`;
-      
-      window.open(`https://wa.me/923024833827?text=${encodeURIComponent(message)}`, '_blank');
-    });
-  </script>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/923011311468"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p>© 2025 Shan Fruit Farm. All Rights Reserved.</p>
+            <p class="copyright">Premium Pakistani Mangoes - Direct from Our Farm</p>
+        </div>
+    </footer>
 </body>
 </html>
