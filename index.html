@@ -1,108 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Shan Fresh Fruit - Mango Booking</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shan Fresh Fruit - Mango Order</title>
   <style>
-    /* Your existing styles here (unchanged) */
     body {
       font-family: Arial, sans-serif;
-      margin: 0; padding: 0;
-      background: #ffffff;
+      margin: 0;
+      padding: 0;
+      background: #fff;
       color: #333;
     }
     header {
       background: #ff9800;
       color: white;
       text-align: center;
-      padding: 20px 10px;
+      padding: 15px 10px;
       position: relative;
     }
     header h1 {
       margin: 0;
-      font-size: 2rem;
-      letter-spacing: 2px;
-      position: relative;
-      z-index: 2;
+      font-size: 1.8rem;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
     }
     header p {
-      position: relative;
-      z-index: 2;
       margin: 5px 0 0;
       font-weight: bold;
     }
-    header img {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 120px;
-      height: 120px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 4px solid white;
-      transform: translate(-50%, -50%);
-      opacity: 0.85;
-      z-index: 1;
-      box-shadow: 0 0 15px rgba(0,0,0,0.3);
-    }
     .container {
-      max-width: 600px;
-      margin: 20px auto;
+      max-width: 500px;
+      margin: 15px auto;
       padding: 0 15px;
+    }
+    .card {
+      background: #fff3e0;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
     h2 {
       color: #e65100;
-      margin-bottom: 10px;
+      margin: 0 0 10px;
+      font-size: 1.3rem;
     }
-    .varieties {
-      background: #fff3e0;
-      padding: 15px;
-      border-radius: 6px;
-      margin-bottom: 20px;
-    }
-    .varieties ul {
-      list-style: none;
-      padding-left: 0;
-    }
-    .varieties li {
-      padding: 5px 0;
-      font-weight: bold;
-    }
-
     .fruit-gallery {
       display: flex;
-      justify-content: space-between;
       gap: 10px;
-      margin: 20px 0;
-      flex-wrap: wrap;
+      margin: 15px 0;
+      height: 120px;
     }
-    .fruit-gallery img {
-      flex: 1 1 30%;
-      max-width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    .fruit-img {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+      border-radius: 5px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    }
+    .fruit-img img {
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-      height: 200px;
+      position: absolute;
+      animation: fruitAnim 15s infinite;
+      opacity: 0;
+      transition: opacity 1s ease;
     }
-
-    .payment-methods {
-      background: #fff3e0;
-      padding: 15px;
-      border-radius: 6px;
-      margin-bottom: 20px;
-      font-weight: bold;
-      color: #e65100;
+    @keyframes fruitAnim {
+      0% { opacity: 0; transform: scale(1); }
+      5% { opacity: 1; transform: scale(1); }
+      25% { opacity: 1; transform: scale(1.05); }
+      30% { opacity: 0; transform: scale(1.1); }
+      100% { opacity: 0; transform: scale(1); }
     }
+    .fruit-img img:nth-child(1) { animation-delay: 0s; }
+    .fruit-img img:nth-child(2) { animation-delay: 5s; }
+    .fruit-img img:nth-child(3) { animation-delay: 10s; }
     form {
       background: #fff3e0;
-      padding: 20px;
-      border-radius: 6px;
+      padding: 15px;
+      border-radius: 8px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
     label {
       display: block;
-      margin: 12px 0 6px;
+      margin: 10px 0 5px;
       font-weight: bold;
     }
     input, select, textarea {
@@ -112,128 +95,146 @@
       border-radius: 4px;
       box-sizing: border-box;
     }
-    textarea {
-      resize: vertical;
-    }
     button {
-      margin-top: 20px;
       background: #ff9800;
       color: white;
       border: none;
-      padding: 15px;
-      font-size: 1.1rem;
-      cursor: pointer;
-      border-radius: 5px;
+      padding: 12px;
       width: 100%;
+      margin-top: 15px;
+      font-size: 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s;
     }
     button:hover {
       background: #e65100;
     }
     footer {
       text-align: center;
-      margin: 40px 0 20px;
-      font-size: 0.9rem;
+      margin: 20px 0;
       color: #777;
+      font-size: 0.9rem;
     }
-    .note {
-      background: #fff3e0;
-      border-left: 5px solid #ff9800;
-      padding: 10px 15px;
-      margin-bottom: 20px;
-      font-style: italic;
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 5px;
     }
   </style>
 </head>
 <body>
+  <header>
+    <h1>Shan Fresh Fruit</h1>
+    <p>Premium Quality Mangoes</p>
+  </header>
 
-<header>
-  <h1>Shan Fresh Fruit</h1>
-  <p>Order Fresh Mangoes Online</p>
-  <img src="images/mango1.jpg" alt="Fresh Mango" />
-</header>
+  <div class="container">
+    <div class="card">
+      <h2>Our Mango Varieties</h2>
+      <div class="fruit-gallery">
+        <div class="fruit-img">
+          <img src="https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Fresh Mango">
+          <img src="https://images.unsplash.com/photo-1603569283847-aa295f0d016a?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Mango Slices">
+          <img src="https://images.unsplash.com/photo-1553279768-865429fa0078?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Mango Basket">
+        </div>
+      </div>
+      <ul>
+        <li><strong>White Chownsa</strong> — PKR 2000 / 10kg</li>
+        <li><strong>Duseri</strong> — PKR 1500 / 10kg</li>
+        <li><strong>Sindhri</strong> — PKR 2000 / 10kg</li>
+        <li><strong>Other varieties</strong> — Available on request</li>
+      </ul>
+    </div>
 
-<div class="container">
+    <div class="fruit-gallery">
+      <div class="fruit-img">
+        <img src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Mango Juice">
+        <img src="https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Mango Drink">
+        <img src="https://images.unsplash.com/photo-1603569283847-aa295f0d016a?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Mango Slices">
+      </div>
+      <div class="fruit-img">
+        <img src="https://images.unsplash.com/photo-1553279768-865429fa0078?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Mango Basket">
+        <img src="https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Fresh Mango">
+        <img src="https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Mango Drink">
+      </div>
+    </div>
 
-  <section class="varieties">
-    <h2>Mango Varieties & Prices</h2>
-    <ul>
-      <li>White Chownsa — PKR 2000 / 10kg (without delivery)</li>
-      <li>Duseri — PKR 1500 / 10kg (without delivery)</li>
-      <li>Sindhri — PKR 2000 / 10kg (without delivery)</li>
-      <li>Other varieties — Price not decided yet</li>
-    </ul>
-  </section>
+    <div class="card">
+      <h2>Payment & Delivery</h2>
+      <p><strong>Payment Methods:</strong></p>
+      <ul>
+        <li>JazzCash: 03237691828</li>
+        <li>Easypaisa: 03220781319</li>
+      </ul>
+      <p><strong>Delivery:</strong> Nationwide (charges apply)</p>
+      <p><em>Payment must be completed before delivery</em></p>
+    </div>
 
-  <!-- Mango Gallery Section -->
-  <div class="fruit-gallery">
-    <img src="images/mango1.jpg" alt="Mango 1" />
-    <img src="images/mango2.jpg" alt="Mango 2" />
-    <img src="images/mango3.jpg" alt="Mango 3" />
+    <form id="bookingForm">
+      <h2>Place Your Order</h2>
+      
+      <div class="fruit-gallery">
+        <div class="fruit-img">
+          <img src="https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Fresh Mango">
+          <img src="https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Mango Drink">
+          <img src="https://images.unsplash.com/photo-1553279768-865429fa0078?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Mango Basket">
+        </div>
+      </div>
+
+      <label for="name">Full Name *</label>
+      <input type="text" id="name" required placeholder="Your full name">
+
+      <label for="phone">Phone/WhatsApp *</label>
+      <input type="tel" id="phone" required placeholder="e.g. 03220781319">
+
+      <label for="address">Delivery Address *</label>
+      <textarea id="address" required rows="3" placeholder="Full address with city"></textarea>
+
+      <label for="variety">Mango Variety *</label>
+      <select id="variety" required>
+        <option value="" disabled selected>Select your variety</option>
+        <option value="White Chownsa">White Chownsa</option>
+        <option value="Duseri">Duseri</option>
+        <option value="Sindhri">Sindhri</option>
+        <option value="Other">Other (Specify in address)</option>
+      </select>
+
+      <label for="quantity">Quantity (kg) *</label>
+      <input type="number" id="quantity" min="1" required placeholder="Minimum 1kg">
+
+      <button type="submit">Place Order via WhatsApp</button>
+    </form>
   </div>
 
-  <section class="payment-methods">
-    Payment Methods Available:<br />
-    • JazzCash: 03237691828<br />
-    • Easypaisa: 03220781319<br /><br />
-    <strong>Note:</strong> Cash payment must be made before delivery.
-  </section>
+  <footer>
+    &copy; 2025 Shan Fresh Fruit. All rights reserved.
+  </footer>
 
-  <section class="note">
-    <strong>Delivery Areas:</strong> All Pakistan<br />
-    <strong>Note:</strong> Delivery prices will be given by buyer.
-  </section>
-
-  <form id="bookingForm">
-    <h2>Place Your Order</h2>
-
-    <label for="name">Full Name *</label>
-    <input type="text" id="name" name="name" required placeholder="Your full name" />
-
-    <label for="phone">Phone or WhatsApp Number *</label>
-    <input type="tel" id="phone" name="phone" required placeholder="e.g. 03220781319" />
-
-    <label for="address">Delivery Address *</label>
-    <textarea id="address" name="address" required placeholder="Your full delivery address"></textarea>
-
-    <label for="variety">Select Variety *</label>
-    <select id="variety" name="variety" required>
-      <option value="" disabled selected>Select variety</option>
-      <option value="White Chownsa">White Chownsa</option>
-      <option value="Duseri">Duseri</option>
-      <option value="Sindhri">Sindhri</option>
-      <option value="Other">Other</option>
-    </select>
-
-    <label for="quantity">Quantity (in kg) *</label>
-    <input type="number" id="quantity" name="quantity" min="1" required placeholder="Enter quantity in kg" />
-
-    <button type="submit">Send Order via WhatsApp</button>
-  </form>
-</div>
-
-<footer>
-  &copy; 2025 Shan Fresh Fruit
-</footer>
-
-<script>
-  document.getElementById('bookingForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    const name = encodeURIComponent(document.getElementById('name').value.trim());
-    const phone = encodeURIComponent(document.getElementById('phone').value.trim());
-    const address = encodeURIComponent(document.getElementById('address').value.trim());
-    const variety = encodeURIComponent(document.getElementById('variety').value);
-    const quantity = encodeURIComponent(document.getElementById('quantity').value);
-
-    const message =
-      `*New Mango Order*\n` +
-      `Name: ${name}\n` +
-      `Phone: ${phone}\n` +
-      `Address: ${address}\n` +
-      `Variety: ${variety}\n` +
-      `Quantity: ${quantity} kg\n\n` +
-      `*Delivery Area:* All Pakistan\n` +
-      `*Delivery Price:* Will be given by buyer\n` +
-      `*Payment:* Cash payment must be made before delivery.\n\n` +
-      `*Payment Methods Available:*\n` +
-      `JazzCash:
+  <script>
+    document.getElementById('bookingForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const name = encodeURIComponent(document.getElementById('name').value.trim());
+      const phone = encodeURIComponent(document.getElementById('phone').value.trim());
+      const address = encodeURIComponent(document.getElementById('address').value.trim());
+      const variety = encodeURIComponent(document.getElementById('variety').value);
+      const quantity = encodeURIComponent(document.getElementById('quantity').value);
+      
+      const message = `*NEW MANGO ORDER*\n\n` +
+                     `*Name:* ${name}\n` +
+                     `*Contact:* ${phone}\n` +
+                     `*Address:* ${address}\n` +
+                     `*Variety:* ${variety}\n` +
+                     `*Quantity:* ${quantity}kg\n\n` +
+                     `*Payment Method:*\n` +
+                     `JazzCash: 03237691828\n` +
+                     `Easypaisa: 03220781319\n\n` +
+                     `*Note:* Payment required before delivery`;
+      
+      window.open(`https://wa.me/923024833827?text=${encodeURIComponent(message)}`, '_blank');
+    });
+  </script>
+</body>
+</html>
