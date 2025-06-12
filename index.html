@@ -19,6 +19,10 @@
             color: #333;
             line-height: 1.6;
             overflow-x: hidden;
+            background-image: url('https://3.imimg.com/data3/VE/KD/MY-7737235/fresh-mangoes-1000x1000.png');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
         }
         
         .container {
@@ -239,6 +243,8 @@
         .section-title {
             text-align: center;
             margin: 60px 0 40px;
+            position: relative;
+            z-index: 2;
         }
         
         .section-title h2 {
@@ -247,6 +253,10 @@
             margin-bottom: 15px;
             position: relative;
             display: inline-block;
+            background-color: rgba(255,255,255,0.9);
+            padding: 10px 20px;
+            border-radius: 50px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
         .section-title h2::after {
@@ -265,6 +275,9 @@
             color: #666;
             max-width: 700px;
             margin: 0 auto;
+            background-color: rgba(255,255,255,0.8);
+            padding: 15px;
+            border-radius: 10px;
         }
         
         .products {
@@ -272,6 +285,8 @@
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 30px;
             margin-bottom: 60px;
+            position: relative;
+            z-index: 2;
         }
         
         .product-card {
@@ -369,7 +384,7 @@
         
         /* About Section */
         .about {
-            background-color: #f0f7f4;
+            background-color: rgba(240, 247, 244, 0.9);
             padding: 80px 0;
             position: relative;
             overflow: hidden;
@@ -451,8 +466,9 @@
         /* Contact Section */
         .contact {
             padding: 80px 0;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="%23f0f7f4" opacity="0.3" d="M0,0 L100,0 L100,100 L0,100 Z"/></svg>');
-            background-size: 100px;
+            background: rgba(240, 247, 244, 0.9);
+            position: relative;
+            z-index: 2;
         }
         
         .contact-info {
@@ -717,7 +733,7 @@
                 <!-- Product 1 - Sindhri -->
                 <div class="product-card">
                     <div class="product-img">
-                        <img src="https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Sindhri Mango">
+                        <img src="https://th.bing.com/th/id/OIP.tbPXNhZUO3ebNlrqJp231QHaHV?rs=1&pid=ImgDetMain" alt="Sindhri Mango">
                         <div class="mango-animation" id="sindhri-animation"></div>
                     </div>
                     <div class="product-info">
@@ -730,7 +746,7 @@
                 <!-- Product 2 - Chaunsa -->
                 <div class="product-card">
                     <div class="product-img">
-                        <img src="https://images.unsplash.com/photo-1553279768-865429fa0078?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Chaunsa Mango">
+                        <img src="https://th.bing.com/th/id/OIP.9b8QQV-pefNIZ_LaoloGUgHaHa?rs=1&pid=ImgDetMain" alt="Chaunsa Mango">
                         <div class="mango-animation" id="chaunsa-animation"></div>
                     </div>
                     <div class="product-info">
@@ -743,7 +759,7 @@
                 <!-- Product 3 - Dusehri with Juice Animation -->
                 <div class="product-card">
                     <div class="product-img">
-                        <img src="https://images.unsplash.com/photo-1599623560574-39d485352c99?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Dusehri Mango">
+                        <img src="https://pakunitedfoods.com/wp-content/uploads/2023/06/Duseri-1-scaled.jpg" alt="Dusehri Mango">
                         <div class="juice-animation" id="dusehri-juice"></div>
                         <div class="mango-animation" id="dusehri-animation"></div>
                     </div>
